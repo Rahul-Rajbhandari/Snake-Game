@@ -15,7 +15,7 @@ function main(ctime) {
 
 
     window.requestAnimationFrame(main);
-    if((ctime-lastPaintTime)/1000< 1/speed){
+    if((ctime-lastPaintTime)/1000 < 1/speed){
         return;
     }
     lastPaintTime= ctime; 
@@ -27,7 +27,14 @@ function gameEngine(){
 
 
     //Part 2: Render the snake of Food
-
+    board.innerHTML = "";
+    snakeArr.forEach((e,index)=>{
+        snakeElement = document.createElement('div');
+        snakeElement.style.gridRowStart = e.y; 
+        snakeElement.style.gridColumnStart = e.x;
+        snakeElement.classList.add('food');
+        board.appendChild(snakeElement);
+    })
 }
 
 
