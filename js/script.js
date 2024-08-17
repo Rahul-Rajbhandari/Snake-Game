@@ -24,13 +24,18 @@ function main(ctime) {
 }
 
 function isCollide(sarr){
+
+    if (snakeArr[0].x <= 0 || snakeArr[0].x >= 18 || snakeArr[0].y <=0 || snakeArr[0].y >=18){
+        return true;
+    }
+
     return false;
 }
 
 function gameEngine() {
     //Part 1: Updating the snake array
     if (isCollide(snakeArr)){
-        gameOverSound.play;
+        gameOverSound.play();
         musicSound.pause();
         inputDirection = {x:0 ,y:0}  
         alert("Game Over Press any key to play again");
@@ -46,6 +51,19 @@ function gameEngine() {
         let b = 16;
         food = {x: Math.round(a+(b-a)*Math.random()), y: Math.round(a+(b-a)*Math.random())}
     }
+
+    //Moving the snake
+    for (let i = snakeArr.length - 2; i >= 0; i--) {
+        snakeArr[i+1]= {...snakeArr[i]};
+    }
+    
+    snakeArr[0].x += inputDirection.x;
+    snakeArr[0].y += inputDirection.y;
+    console.log(snakeArr[0].x);
+    console.log(snakeArr[0].y);
+
+    
+
 
     //Part 2: Render the snake and Food
     // Display the snake 
@@ -79,6 +97,8 @@ function gameEngine() {
 window.requestAnimationFrame(main);
 window.addEventListener('keydown',e =>{
     inputDirection = {x:0 ,y:1} //start the game
+    musicSound.play();
+
     moveSound.play();
     switch(e.key){
         case "ArrowUp":
