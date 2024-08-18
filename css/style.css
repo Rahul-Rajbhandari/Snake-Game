@@ -3,30 +3,43 @@
     margin: 0;
 }
 body{
-    background: url("../Images/bg.jpg");
+    /* background: url("../Images/bg.jpg"); */
+    background-color: #3fcd3b;
     min-height: 100vh;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+#bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
 #board{
     height: 92vmin;
     width: 90vmin;
-    /* background: linear-gradient(); */
-    background-color: #4ab944;
+    background: linear-gradient(rgb(137, 239, 137), rgb(216, 191, 132));
+    /* background-color: #4ab944; */
     border: 8px solid white;
     border-radius: 10px;
     display: grid;
     grid-template-rows: repeat(18,1fr);
     grid-template-columns: repeat(18,1fr)
 }
+
 .head{
     background-color: red;
+    border-radius: 50%;
 }
 .snake-body{
     background-color: purple;
+    border-radius: 50%;
 }
 .food{
     background-color: yellow;
+    border-radius: 50%;
 }
