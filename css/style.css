@@ -51,6 +51,7 @@ html,body {
 }
 
 .content {
+    overflow: hidden;
     height: 60vh;
     display: flex;
     flex-direction: column-reverse;
@@ -155,14 +156,15 @@ a:hover {
         gap: 5vw;
     }
     .content{
+        height: auto;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
     #info{
         font-size: 8px;
     }
-    #touchpad{
+    /* #touchpad{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -176,7 +178,7 @@ a:hover {
     }
     #touchpad p{
         opacity: 30%;
-    }
+    } */
     #attributes{
         width: fit-content;
         position: static;
