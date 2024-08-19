@@ -15,8 +15,8 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 10vw;
     font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 5vh;
 }
 #title{
     font-size: 50px;
@@ -150,6 +150,10 @@ a:hover {
     nav{
         position: none;
         font-size: large;
+        margin-bottom: 1vh;
+    }
+    #title{
+        font-size: 20px;
     }
     #board {
         height: 40vh;
