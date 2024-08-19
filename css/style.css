@@ -63,7 +63,7 @@ html,body {
 }
 .buttons{
     font-size: xx-large;
-    display: none;
+    display: hidden;
 }
 #touchpad{
     display: none;
@@ -146,17 +146,26 @@ a:hover {
     #info{
         font-size: 8px;
     }
+    .buttons{
+        transform: scale(1.5);
+        display: block;
+        position: absolute;
+        right: 4vw;
+    }
     #touchpad{
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: sans-serif;
         font-size: small;
-        height: 300px;
-        width: 90%;
+        height: 150px;
+        width: 100%;
         background: #000;
         border: 2px solid rgb(14, 0, 14);
         border-radius: 4px;
+    }
+    #touchpad p{
+        opacity: 30%;
     }
     #attributes{
         width: fit-content;

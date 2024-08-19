@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script> */}
 
 //Game Constants and Variables
 let inputDirection = { x: 0, y: 0 };
@@ -75,33 +75,33 @@ function gameEngine() {
         }
     })
     //swipe guesture
-    const swipeArea = document.getElementById('touchpad');
-    const hammer = new Hammer(swipeArea);
+    // const swipeArea = document.getElementById('touchpad');
+    // const hammer = new Hammer(swipeArea);
 
-    hammer.on('swipeleft', () => {
-        if (inputDirection.x !== 1) {
-            inputDirection.x = -1;
-            inputDirection.y = 0;
-        }
-    })
-    hammer.on('swiperight', () => {
-        if (inputDirection.x !== -1) {
-            inputDirection.x = 1;
-            inputDirection.y = 0;
-        }
-    })
-    hammer.on('swipeup', () => {
-        if (inputDirection.y !== 1) {
-            inputDirection.x = 0;
-            inputDirection.y = -1;
-        }
-    })
-    hammer.on('swipedown', () => {
-        if (inputDirection.y !== -1) {
-            inputDirection.x = 0;
-            inputDirection.y = 1;
-        }
-    })
+    // hammer.on('swipeleft', () => {
+    //     if (inputDirection.x !== 1) {
+    //         inputDirection.x = -1;
+    //         inputDirection.y = 0;
+    //     }
+    // })
+    // hammer.on('swiperight', () => {
+    //     if (inputDirection.x !== -1) {
+    //         inputDirection.x = 1;
+    //         inputDirection.y = 0;
+    //     }
+    // })
+    // hammer.on('swipeup', () => {
+    //     if (inputDirection.y !== 1) {
+    //         inputDirection.x = 0;
+    //         inputDirection.y = -1;
+    //     }
+    // })
+    // hammer.on('swipedown', () => {
+    //     if (inputDirection.y !== -1) {
+    //         inputDirection.x = 0;
+    //         inputDirection.y = 1;
+    //     }
+    // })
 
 
     //Part 1: Updating the snake array
