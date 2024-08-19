@@ -1,4 +1,3 @@
-{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script> */}
 
 //Game Constants and Variables
 let inputDirection = { x: 0, y: 0 };
@@ -10,13 +9,13 @@ let score = 0;
 let highestScore = 0;
 let speed = 9;
 let lastPaintTime = 0;
+let isMusicOn = true;
 let snakeArr = [
     { x: 13, y: 15 }, { x: 12, y: 15 }, { x: 11, y: 15 }
 ]
 let food = { x: 10, y: 9 };
 
 let username = prompt("Enter your username: ");
-
 
 //Game Fuctions
 function main(ctime) {
@@ -29,8 +28,6 @@ function main(ctime) {
 }
 
 function isCollide(sarr) {
-    // console.log(`Snake Head Position: x=${snakeArr[0].x}, y=${snakeArr[0].y}`);
-
     // if you touch the boarder
     if (snakeArr[0].x <= 0 || snakeArr[0].x >= 18 || snakeArr[0].y <= 0 || snakeArr[0].y >= 18) {
         return true;
@@ -43,77 +40,27 @@ function isCollide(sarr) {
             return true;
         }
     }
-
     return false;
 }
 
+function resetGame() {
+    gameOverSound.play();
+    musicSound.pause();
+    inputDirection = { x: 0, y: 0 }
+    alert("Game Over Press Enter to play again");
+    snakeArr = [{ x: 13, y: 15 }, { x: 12, y: 15 }, { x: 11, y: 15 }];
+    score = 0;
+}
+
 function gameEngine() {
-    // for mobile users 
-
-    document.getElementById('left').addEventListener('click', () => {
-        if (inputDirection.x !== 1) {
-            inputDirection.x = -1;
-            inputDirection.y = 0;
-        }
-    });
-    document.getElementById('right').addEventListener('click', () => {
-        if (inputDirection.x !== -1) {
-            inputDirection.x = 1;
-            inputDirection.y = 0;
-        }
-    })
-    document.getElementById('up').addEventListener('click', () => {
-        if (inputDirection.y !== 1) {
-            inputDirection.x = 0;
-            inputDirection.y = -1;
-        }
-    })
-    document.getElementById('down').addEventListener('click', () => {
-        if (inputDirection.y !== -1) {
-            inputDirection.x = 0;
-            inputDirection.y = 1;
-        }
-    })
-    //swipe guesture
-    // const swipeArea = document.getElementById('touchpad');
-    // const hammer = new Hammer(swipeArea);
-
-    // hammer.on('swipeleft', () => {
-    //     if (inputDirection.x !== 1) {
-    //         inputDirection.x = -1;
-    //         inputDirection.y = 0;
-    //     }
-    // })
-    // hammer.on('swiperight', () => {
-    //     if (inputDirection.x !== -1) {
-    //         inputDirection.x = 1;
-    //         inputDirection.y = 0;
-    //     }
-    // })
-    // hammer.on('swipeup', () => {
-    //     if (inputDirection.y !== 1) {
-    //         inputDirection.x = 0;
-    //         inputDirection.y = -1;
-    //     }
-    // })
-    // hammer.on('swipedown', () => {
-    //     if (inputDirection.y !== -1) {
-    //         inputDirection.x = 0;
-    //         inputDirection.y = 1;
-    //     }
-    // })
-
+    if (isMusicOn == true) {
+        musicSound.play();
+    } else {
+        musicSound.pause();
+    }
 
     //Part 1: Updating the snake array
-    if (isCollide(snakeArr)) {
-        gameOverSound.play();
-        musicSound.pause();
-        inputDirection = { x: 0, y: 0 }
-        alert("Game Over Press Enter to play again");
-        snakeArr = [{ x: 13, y: 15 }, { x: 12, y: 15 }, { x: 11, y: 15 }];
-        musicSound.play();
-        score = 0;
-    }
+    if (isCollide(snakeArr)) { resetGame(); }
 
     //If you have eaten the food, increment the score and regenerate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
@@ -193,7 +140,6 @@ function gameEngine() {
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     //start the game
-    musicSound.play();
     moveSound.play();
     switch (e.key) {
         case "ArrowUp":
@@ -225,3 +171,45 @@ window.addEventListener('keydown', e => {
             break;
     }
 });
+
+   // for mobile users( buttons ) 
+document.getElementById('left').addEventListener('click', () => {
+    moveSound.play();
+    if (inputDirection.x !== 1) {
+        inputDirection.x = -1;
+        inputDirection.y = 0;
+    }
+});
+document.getElementById('right').addEventListener('click', () => {
+    moveSound.play();
+    if (inputDirection.x !== -1) {
+        inputDirection.x = 1;
+        inputDirection.y = 0;
+    }
+})
+document.getElementById('up').addEventListener('click', () => {
+    moveSound.play();
+    if (inputDirection.y !== 1) {
+        inputDirection.x = 0;
+        inputDirection.y = -1;
+    }
+})
+document.getElementById('down').addEventListener('click', () => {
+    moveSound.play();
+    if (inputDirection.y !== -1) {
+        inputDirection.x = 0;
+        inputDirection.y = 1;
+    }
+})
+let musicElem = document.getElementById('music');
+musicElem.addEventListener('click', () => {
+    isMusicOn = !isMusicOn;
+    if (isMusicOn) {
+        musicElem.textContent = "Music:ON";
+        musicElem.style.background = "#2f0a63";
+    }
+    else {
+        musicElem.textContent = "Music:OFF";
+        musicElem.style.background = "red";
+    }
+})

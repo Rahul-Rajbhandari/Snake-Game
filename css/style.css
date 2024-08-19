@@ -9,17 +9,27 @@ html,body {
     background-color: #1D2326;
     min-height: 100vh;
 }
-#title{
-    /* position: relative;
-    right: 13vw; */
-    margin: 3vh;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    font-size: 50px;
+nav{
     background: #521ed4;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10vw;
+    font-family: 'Courier New', Courier, monospace;
+}
+#title{
+    font-size: 50px;
     padding: 0.6vw;
     border-radius: 1vw;
     text-align: center;
+}
+#music{
+    color: white;
+    cursor: pointer;
+    background: #2f0a63;
+    padding: 8px;
+    border-radius: 2vw;
 }
 #bg {
     position: absolute;
@@ -79,9 +89,7 @@ html,body {
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 5px;
 }
-#touchpad{
-    display: none;
-}
+
 
 #attributes {
     font-family: monospace;
@@ -139,7 +147,7 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-    #title{
+    nav{
         position: none;
         font-size: large;
     }
@@ -164,22 +172,8 @@ a:hover {
     #info{
         font-size: 8px;
     }
-    /* #touchpad{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: sans-serif;
-        font-size: small;
-        height: 150px;
-        width: 100%;
-        background: #000;
-        border: 2px solid rgb(14, 0, 14);
-        border-radius: 4px;
-    }
-    #touchpad p{
-        opacity: 30%;
-    } */
     #attributes{
+        margin-top: 40px;
         width: fit-content;
         position: static;
     }
