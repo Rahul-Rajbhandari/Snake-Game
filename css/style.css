@@ -4,14 +4,22 @@
 }
 
 body {
+    overflow-x: hidden;
     background-color: #1D2326;
     min-height: 100vh;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
+#title{
+    /* position: relative;
+    right: 13vw; */
+    margin: 3vh;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 50px;
+    background: #521ed4;
+    padding: 0.8vw;
+    border-radius: 1vw;
+    text-align: center;
+}
 #bg {
     position: absolute;
     top: 0;
@@ -26,13 +34,14 @@ body {
     height: 100%;
     display: flex;
     align-items: start;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 10vw;
 }
 
 #board {
     height: 80vh;
     width: 80vh;
-    background: linear-gradient(rgb(137, 239, 137), rgb(216, 191, 132));
+    background: linear-gradient(rgb(98, 64, 191), rgb(85, 16, 203));
     border: 4px solid rgb(252, 252, 252);
     border-radius: 10px;
     display: grid;
@@ -40,10 +49,18 @@ body {
     grid-template-columns: repeat(18, 1fr)
 }
 
-.info {
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 40px;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+}
+.buttons{
+    font-size: xx-large;
+    /* display: none; */
 }
 
 #attributes {
@@ -69,14 +86,14 @@ a:hover {
 
 .head {
     background: linear-gradient(red, yellow);
-    border: 2px solid purple;
+    border: 2px solid rgb(197, 223, 233);
     transform: scale(1.01);
     border-radius: 12px;
 }
 
 .snake-body {
-    background-color: rgb(9, 231, 28);
-    border: .25vmin solid white;
+    background-color: rgb(38, 12, 79);
+    border: .25vmin solid rgb(109, 20, 204);
     border-radius: 12px;
 }
 
@@ -102,6 +119,9 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
+    #title{
+        position: none;
+    }
     #board {
         height: 50vh;
         width: 50vh;
@@ -111,5 +131,20 @@ a:hover {
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        gap: 10vw;
+    }
+    .content{
+        flex-direction: row;
+        gap: 100px;
+    }
+    #info{
+        font-size: 10px;
+    }
+    .buttons{
+        display: block;
+    }
+    #attributes{
+        width: fit-content;
+        position: static;
     }
 }

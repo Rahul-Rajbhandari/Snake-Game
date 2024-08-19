@@ -46,6 +46,33 @@ function isCollide(sarr) {
 }
 
 function gameEngine() {
+// for mobile users 
+
+document.getElementById('left').addEventListener('click',()=> {
+    if(inputDirection.x !== 1) {
+    inputDirection.x = -1;
+    inputDirection.y = 0;
+}
+});
+document.getElementById('right').addEventListener('click',()=> {
+    if(inputDirection.x !== -1) {
+    inputDirection.x = 1;
+    inputDirection.y = 0;
+}
+})
+document.getElementById('up').addEventListener('click',()=> {
+    if(inputDirection.y !== 1) {
+    inputDirection.x = 0;
+    inputDirection.y = -1;
+}
+})
+document.getElementById('down').addEventListener('click',()=> {
+    if(inputDirection.y !== -1) {
+    inputDirection.x = 0;
+    inputDirection.y = 1;
+}
+})
+
     //Part 1: Updating the snake array
     if (isCollide(snakeArr)) {
         gameOverSound.play();
@@ -65,17 +92,17 @@ function gameEngine() {
         snakeArr.push({ x: snakeArr[snakeArr.length - 1].x, y: snakeArr[snakeArr.length - 1].y });
         let a = 2;
         let b = 16;
-        
-        while(true){
+
+        while (true) {
             food = {
-                x: Math.round(a+(b-a)*Math.random()),
-                y: Math.round(a+(b-a)*Math.random())
+                x: Math.round(a + (b - a) * Math.random()),
+                y: Math.round(a + (b - a) * Math.random())
             };
-            let isOnSnake = snakeArr.some((segment)=>{
+            let isOnSnake = snakeArr.some((segment) => {
                 return segment.x === food.x && segment.y === food.y;
             })
             console.log(isOnSnake)
-            if (!isOnSnake){break;}
+            if (!isOnSnake) { break; }
         }
     }
 
