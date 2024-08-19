@@ -65,6 +65,9 @@ html,body {
     font-size: xx-large;
     display: none;
 }
+#touchpad{
+    display: none;
+}
 
 #attributes {
     font-family: monospace;
@@ -135,19 +138,25 @@ a:hover {
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        gap: 10vw;
+        gap: 8w;
     }
     .content{
-        gap: 20px;
+        gap: 10px;
     }
     #info{
         font-size: 8px;
     }
-    .buttons{
-        transform: scale(1.5);
-        display: block;
-        position: absolute;
-        right: 2vw;
+    #touchpad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: small;
+        height: 300px;
+        width: 90%;
+        background: #000;
+        border: 2px solid rgb(14, 0, 14);
+        border-radius: 4px;
     }
     #attributes{
         width: fit-content;

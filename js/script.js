@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
 //Game Constants and Variables
 let inputDirection = { x: 0, y: 0 };
 const foodSound = new Audio('../Sounds/food.mp3');
@@ -46,32 +48,61 @@ function isCollide(sarr) {
 }
 
 function gameEngine() {
-// for mobile users 
+    // for mobile users 
 
-document.getElementById('left').addEventListener('click',()=> {
-    if(inputDirection.x !== 1) {
-    inputDirection.x = -1;
-    inputDirection.y = 0;
-}
-});
-document.getElementById('right').addEventListener('click',()=> {
-    if(inputDirection.x !== -1) {
-    inputDirection.x = 1;
-    inputDirection.y = 0;
-}
-})
-document.getElementById('up').addEventListener('click',()=> {
-    if(inputDirection.y !== 1) {
-    inputDirection.x = 0;
-    inputDirection.y = -1;
-}
-})
-document.getElementById('down').addEventListener('click',()=> {
-    if(inputDirection.y !== -1) {
-    inputDirection.x = 0;
-    inputDirection.y = 1;
-}
-})
+    document.getElementById('left').addEventListener('click', () => {
+        if (inputDirection.x !== 1) {
+            inputDirection.x = -1;
+            inputDirection.y = 0;
+        }
+    });
+    document.getElementById('right').addEventListener('click', () => {
+        if (inputDirection.x !== -1) {
+            inputDirection.x = 1;
+            inputDirection.y = 0;
+        }
+    })
+    document.getElementById('up').addEventListener('click', () => {
+        if (inputDirection.y !== 1) {
+            inputDirection.x = 0;
+            inputDirection.y = -1;
+        }
+    })
+    document.getElementById('down').addEventListener('click', () => {
+        if (inputDirection.y !== -1) {
+            inputDirection.x = 0;
+            inputDirection.y = 1;
+        }
+    })
+    //swipe guesture
+    const swipeArea = document.getElementById('touchpad');
+    const hammer = new Hammer(swipeArea);
+
+    hammer.on('swipeleft', () => {
+        if (inputDirection.x !== 1) {
+            inputDirection.x = -1;
+            inputDirection.y = 0;
+        }
+    })
+    hammer.on('swiperight', () => {
+        if (inputDirection.x !== -1) {
+            inputDirection.x = 1;
+            inputDirection.y = 0;
+        }
+    })
+    hammer.on('swipeup', () => {
+        if (inputDirection.y !== 1) {
+            inputDirection.x = 0;
+            inputDirection.y = -1;
+        }
+    })
+    hammer.on('swipedown', () => {
+        if (inputDirection.y !== -1) {
+            inputDirection.x = 0;
+            inputDirection.y = 1;
+        }
+    })
+
 
     //Part 1: Updating the snake array
     if (isCollide(snakeArr)) {
