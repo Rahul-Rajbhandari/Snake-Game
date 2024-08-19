@@ -1,9 +1,10 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-body {
+html,body {
     overflow-x: hidden;
     background-color: #1D2326;
     min-height: 100vh;
