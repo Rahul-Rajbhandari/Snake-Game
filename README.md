@@ -17,7 +17,7 @@ I've made it fully responsive , so  it works smoothly on any device.
 
 
 ## Any Suggestion :
-Feel Free To Share Your Opinion : [@rahulrajbhandari](https://www.linkedin.com/in/rahul-rajbhandari-290876284)
+Feel free to share your opinion to: [@rahulrajbhandari](https://www.linkedin.com/in/rahul-rajbhandari-290876284)
 
 ## Languages Used:
 <p align="left">
